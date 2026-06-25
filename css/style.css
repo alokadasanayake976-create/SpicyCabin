@@ -3,3 +3,8 @@ body{
       margin: 0;
   padding: 60px 50px;
 }
+.container{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
