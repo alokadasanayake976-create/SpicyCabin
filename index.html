@@ -11,6 +11,8 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <!-- AOS Library link css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -139,7 +141,7 @@
       <h2>What kind of spices in our progress</h2>
     </section>
     <section class="container">
-      <img src="assets/images/photo4.jpg" width="400" height="300" alt="" />
+      <img src="assets/images/photo4.jpg" data-aos="fade-left" width="400" height="300" alt="" />
       <p>
         Ginger is an important spice crop grown in many tropical and subtropical
         regions of the world. It is produced by planting pieces of underground
@@ -150,7 +152,7 @@
     <br />
     <br />
     <section class="container">
-      <img src="assets/images/photo5.jpg" width="400" height="300" alt="" />
+      <img src="assets/images/photo5.jpg"data-aos="fade-right" width="400" height="300" alt="" />
       <p>
         Black pepper is a valuable spice crop grown mainly in warm, humid
         tropical regions. It is cultivated from vine cuttings and grows best in
@@ -164,7 +166,7 @@
     <br />
     <br />
     <section class="container">
-      <img src="assets/images/photo6.jpg" width="400" height="300" alt="" />
+      <img src="assets/images/photo6.jpg"data-aos="fade-left" width="400" height="300" alt="" />
       <p>
         Turmeric is an important spice and medicinal crop cultivated in tropical
         and subtropical regions. It is grown from rhizomes in fertile,
@@ -182,5 +184,9 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
