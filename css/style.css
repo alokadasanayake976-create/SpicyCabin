@@ -8,3 +8,19 @@ body{
     gap:20px;
     align-items:center;
 }
+.site-footer {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.site-footer a {
+  color: #4dabf7;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
