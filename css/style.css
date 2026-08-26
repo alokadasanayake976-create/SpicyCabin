@@ -37,3 +37,15 @@ body{
   border-radius: 4px;
 }
 /*////////////////////////////////////*/
+.video-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+}
