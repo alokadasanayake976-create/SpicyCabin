@@ -1,12 +1,19 @@
 const products2 = [
-    { id: 1, image:innerHTML=`<img src="assets/images/photo8.jpeg" width="250" height="200" alt="" />`, price: 2000.00 },
-    { id: 2, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`, price: 1000.00 },
-    { id: 3, image:innerHTML=`<img src="assets/images/photo10.jpg" width="250" height="200" alt="" />`, price: 500.00 },
-    { id: 4, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`, price: 200.00 },
-    
-    { id: 5, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`, price: 200.00 },
+
+    //pepper----
+    { id: 1, image:innerHTML=`<img src="assets/images/photo8.jpeg" width="250" height="200" alt="" />`,qty:1000, price: 2000.00 },
+    { id: 2, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:500, price: 1000.00 },
+    { id: 3, image:innerHTML=`<img src="assets/images/photo10.jpg" width="250" height="200" alt="" />`,qty:250, price: 500.00 },
+    { id: 4, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`,qty:100, price: 200.00 },
+    //ginger----
+    { id: 5, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`,qty:1000, price: 1200.00 },
+    //turmeric---
+    { id: 5, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`,qty:1000, price: 2000.00 }
+
 
 ];
+
+
 
 // Shopping Cart State Application Data Array
 let cart = [];
@@ -26,6 +33,7 @@ function renderProducts() {
     productList.innerHTML = products2.map(product => `
         <div class="product-card">
             <h3>${product.image}</h3>
+            <p class="product-qty">${product.qty.toFixed()}g</p>
             <p class="product-price">Rs.${product.price.toFixed(2)}</p>
             <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
         </div>
