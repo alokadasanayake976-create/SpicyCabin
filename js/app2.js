@@ -1,8 +1,11 @@
 const products2 = [
-    { id: 1, image:innerHTML=`<img src="assets/images/photo8.jpeg" width="200" height="150" alt="" />`, price: 89.99 },
-    { id: 2, image:innerHTML=`<img src="assets/images/photo9.webp" width="200" height="150" alt="" />`, price: 149.99 },
-    { id: 3, image:innerHTML=`<img src="assets/images/photo10.jpg" width="200" height="150" alt="" />`, price: 69.99 },
-    { id: 4, image:innerHTML=`<img src="assets/images/photo11.jpg" width="200" height="150" alt="" />`, price: 45.50 }
+    { id: 1, image:innerHTML=`<img src="assets/images/photo8.jpeg" width="250" height="200" alt="" />`, price: 2000.00 },
+    { id: 2, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`, price: 1000.00 },
+    { id: 3, image:innerHTML=`<img src="assets/images/photo10.jpg" width="250" height="200" alt="" />`, price: 500.00 },
+    { id: 4, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`, price: 200.00 },
+    
+    { id: 5, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`, price: 200.00 },
+
 ];
 
 // Shopping Cart State Application Data Array
@@ -23,7 +26,7 @@ function renderProducts() {
     productList.innerHTML = products2.map(product => `
         <div class="product-card">
             <h3>${product.image}</h3>
-            <p class="product-price">$${product.price.toFixed(2)}</p>
+            <p class="product-price">Rs.${product.price.toFixed(2)}</p>
             <button class="add-to-cart-btn" onclick="addToCart(${product.id})">Add to Cart</button>
         </div>
     `).join('');
@@ -56,7 +59,7 @@ function updateCartUI() {
         <div class="cart-item">
             <div>
                 <h4>${item.image}</h4>
-                <small>$${item.price.toFixed(2)} x ${item.quantity}</small>
+                <small>Rs.${item.price.toFixed(2)} x ${item.quantity}</small>
             </div>
             <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
         </div>
