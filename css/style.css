@@ -49,3 +49,10 @@ body{
     display: block;
     border-radius: 15px;
 }
+/* //-------------image center----------- */
+.image-container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically (requires a container height) */
+}
+/* /////////////////////////////////////////////////////// */
