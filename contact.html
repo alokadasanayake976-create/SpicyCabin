@@ -1,112 +1,319 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact us</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="assets/images/logo.jpeg"
-          ><img src="assets/images/logo.jpeg" width="80" height="80" alt=""
-        /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="products.html">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact us</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Other
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <!-- <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> -->
-        </div>
-      </div>
-    </nav>
-    <img src="assets/images/photo16.png" width="1264" height="450" alt="" />
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <!-- <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d642.5230457411235!2d80.12159771219184!3d6.731647701392266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2slk!4v1788090282652!5m2!1sen!2slk"
-      width="600"
-      height="450"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-    ></iframe> -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12001.506036300325!2d80.1146305334126!3d6.735165696211873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3b35e4cd78e69%3A0xd5260864a578c9f5!2sPoruwadanda!5e1!3m2!1sen!2slk!4v1788090779229!5m2!1sen!2slk"
-      width="500"
-      height="350"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-    ></iframe>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us - Spicy Cabin</title>
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+    crossorigin="anonymous"
+  >
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+    <div class="container-fluid">
+
+      <!-- Logo -->
+      <a class="navbar-brand" href="index.html">
+        <img
+          src="assets/images/logo.jpeg"
+          width="80"
+          height="80"
+          alt="Spicy Cabin Logo"
+        >
+      </a>
+
+      <!-- Mobile Navbar Button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div
+        class="collapse navbar-collapse"
+        id="navbarSupportedContent"
+      >
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="index.html"
+            >
+              Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="about.html"
+            >
+              About Us
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="products.html"
+            >
+              Products
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="contact.html"
+            >
+              Contact Us
+            </a>
+          </li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Other
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" href="#">
+                  Action
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#">
+                  Another action
+                </a>
+              </li>
+
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="#">
+                  Something else here
+                </a>
+              </li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+        <!-- Facebook -->
+        <a
+          href="https://www.facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+          >
+
+            <path
+              d="M25,3C12.85,3,3,12.85,3,25c0,11.03,8.125,20.137,18.712,21.728V30.831h-5.443v-5.783h5.443v-3.848c0-6.371,3.104-9.168,8.399-9.168c2.536,0,3.877,0.188,4.512,0.274v5.048h-3.612c-2.248,0-3.033,2.131-3.033,4.533v3.161h6.588l-0.894,5.783h-5.694v15.944C38.716,45.318,47,36.137,47,25C47,12.85,37.15,3,25,3z"
+            >
+
+            </path>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- ================= PAGE TITLE ================= -->
+
+  <h1 class="gradient-heading">
+    For FURTHER INFO...
+  </h1>
+
+
+  <!-- ================= BANNER IMAGE ================= -->
+
+  <div class="container-fluid p-0">
+
+    <img
+      src="assets/images/photo16.png"
+      class="img-fluid w-100"
+      alt="Contact Spicy Cabin"
+    >
+
+  </div>
+
+
+  <!-- ================= CONTACT FORM ================= -->
+
+  <div class="container my-5">
+
+    <div class="form-container">
+
+      <h2 class="mb-4">
+        Contact Us
+      </h2>
+
+      <form>
+
+        <!-- Full Name -->
+        <div class="mb-3">
+
+          <label
+            for="username"
+            class="form-label"
+          >
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-control"
+            placeholder="Kamal Chaminda"
+            required
+          >
+
+        </div>
+
+
+        <!-- Email -->
+        <div class="mb-3">
+
+          <label
+            for="email"
+            class="form-label"
+          >
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="example@gmail.com"
+            required
+          >
+
+        </div>
+
+
+        <!-- Message -->
+        <div class="mb-3">
+
+          <label
+            for="message"
+            class="form-label"
+          >
+            Message
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            class="form-control"
+            rows="5"
+            placeholder="Write your message here..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="btn btn-success"
+        >
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= GOOGLE MAP ================= -->
+
+  <div class="container my-5">
+
+    <h2 class="text-center mb-4">
+      Find Us
+    </h2>
+
+    <div class="map-container">
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12001.506036300325!2d80.1146305334126!3d6.735165696211873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3b35e4cd78e69%3A0xd5260864a578c9f5!2sPoruwadanda!5e1!3m2!1sen!2slk!4v1788090779229!5m2!1sen!2slk"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="Spicy Cabin Location"
+      ></iframe>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= BOOTSTRAP JS ================= -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwxH9j09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+
+</body>
+
 </html>

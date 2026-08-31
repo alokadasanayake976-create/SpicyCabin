@@ -252,3 +252,17 @@ header {
     cursor: pointer;
     margin-top: 10px;
 }
+/* /////////////////////////////// */
+.gradient-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* webkit-background-clip: text;
+  webkit-text-fill-color: transparent; */
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* //////////////////////contact us /////////////////////////// */
