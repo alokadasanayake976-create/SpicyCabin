@@ -260,3 +260,82 @@ header {
     width: 500px;
     margin: 50px auto;
 }
+/* /////////////////////////////////////////////////////////////// */
+
+.spice-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Spice images */
+.spice-image {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Paragraph */
+.spice-section p {
+    font-size: 17px;
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0;
+}
+
+
+/* Land heading */
+.land-title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.land-title h5 {
+    line-height: 1.6;
+}
+
+
+/* Land images */
+.land-image {
+    width: 100%;
+    max-width: 500px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/* Mobile devices */
+@media (max-width: 767px) {
+
+    .spice-section {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .spice-image {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .spice-section p {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .land-title {
+        margin-top: 35px;
+    }
+
+    .land-title h5 {
+        font-size: 16px;
+    }
+
+    .land-image {
+        height: auto;
+    }
+}
+
