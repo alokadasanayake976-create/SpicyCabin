@@ -1,12 +1,12 @@
 const products2 = [
 
     //pepper----
-    { id: 1, image:innerHTML=`<img src="assets/images/photo8.jpeg" width="250" height="200" alt="" />`,qty:1000, price: 2000.00 },
+    { id: 1, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:1000, price: 2000.00 },
     { id: 2, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:500, price: 1000.00 },
-    { id: 3, image:innerHTML=`<img src="assets/images/photo10.jpg" width="250" height="200" alt="" />`,qty:250, price: 500.00 },
-    { id: 4, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`,qty:100, price: 200.00 },
+    { id: 3, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:250, price: 500.00 },
+    { id: 4, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:100, price: 200.00 },
     //ginger----
-    { id: 5, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`,qty:1000, price: 1200.00 },
+    { id: 5, image:innerHTML=`<img src="assets/images/photo14.jpg" width="250" height="200" alt="" />`,qty:1000, price: 1200.00 },
     //turmeric---
     { id: 5, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`,qty:1000, price: 2000.00 }
 
@@ -15,7 +15,7 @@ const products2 = [
 
 
 
-// Shopping Cart State Application Data Array
+//  Data Array
 let cart = [];
 
 // DOM Element Selectors
