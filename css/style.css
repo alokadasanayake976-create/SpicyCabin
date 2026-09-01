@@ -399,6 +399,55 @@ header {
     width: 100%;
   }
 }
+/* //------------about us second image and text---- */
+.image-text-section{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+.responsive-image{
+    width: 50%;
+    max-width: 600%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+
+}
+.image-text-section p{
+    flex: 1;
+    line-height: 1,7;
+    margin: 0;
+}
 
 
+/*tablet*/
+@media (max-width:768px){
+    .image-text-section{
+        gap:20px;
+        padding: 15px;
+    }
 
+.responsive-image{
+    width: 45%;
+    }
+}
+/* mobile */
+@media (max-width:576px){
+    .image-text-section{
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+.responsive-image{
+    width: 100%;
+    max-width: 100%;
+
+}
+.image-text-section p{
+    width: 100%;
+    font-size: 15px;
+    }  
+}
