@@ -367,6 +367,38 @@ header {
     height: 250px;
   }
 }
+/* //////////////////////about ->entranse video//////////////////////////// */
+.video-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .video-container {
+    width: 95%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .video-container {
+    width: 100%;
+  }
+
+  .video-container video {
+    width: 100%;
+  }
+}
 
 
 
