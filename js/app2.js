@@ -91,6 +91,7 @@ checkoutBtn.addEventListener("click", () => {
         alert("Your cart is empty!");
         return;
     }
+    
     alert("Thank you for your purchase! Checkout completed.");
     cart = [];
     updateCartUI();
@@ -99,3 +100,6 @@ checkoutBtn.addEventListener("click", () => {
 
 // Initial Run Sequence
 renderProducts();
+//-----------checkout form -------------
+
+
