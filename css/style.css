@@ -466,6 +466,244 @@ header {
 .icon-container{
     text-align: right;
 }
-/* /////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////*/
+/* =====================================
+   CHECKOUT FORM SIDEBAR
+===================================== */
+
+.form-sidebar {
+
+    position: fixed;
+
+    top: 0;
+    right: -500px;
+
+    width: 500px;
+    max-width: 100%;
+
+    height: 100vh;
+
+    background-color: white;
+
+    z-index: 10000;
+
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+
+    transition: right 0.4s ease;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================
+   SHOW CHECKOUT FORM
+===================================== */
+
+.form-sidebar.active {
+
+    right: 0;
+
+}
+
+
+/* =====================================
+   FORM CONTAINER
+===================================== */
+
+.checkout-form {
+
+    width: 100%;
+
+    position: relative;
+
+}
+
+
+/* =====================================
+   HEADING
+===================================== */
+
+.checkout-form h2 {
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+.checkout-form > p {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================
+   CLOSE BUTTON
+===================================== */
+
+.close-form-btn {
+
+    position: absolute;
+
+    top: -15px;
+
+    right: 0;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    color: #333;
+
+}
+
+
+.close-form-btn:hover {
+
+    color: red;
+
+}
+
+
+/* =====================================
+   FORM GROUP
+===================================== */
+
+.form-group {
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =====================================
+   LABEL
+===================================== */
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+/* =====================================
+   INPUTS
+===================================== */
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+/* =====================================
+   INPUT FOCUS
+===================================== */
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    outline: none;
+
+    border-color: green;
+
+    box-shadow: 0 0 5px rgba(0, 128, 0, 0.2);
+
+}
+
+
+/* =====================================
+   PLACE ORDER BUTTON
+===================================== */
+
+.place-order-btn {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: green;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+}
+
+
+.place-order-btn:hover {
+
+    background-color: darkgreen;
+
+}
+
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 600px) {
+
+    .form-sidebar {
+
+        width: 100%;
+
+        padding: 25px 20px;
+
+    }
+
+    .checkout-form h2 {
+
+        font-size: 23px;
+
+    }
+
+}
+
 
 /* ///////////////////////////////////////////////////////////// */

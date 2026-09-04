@@ -55,7 +55,25 @@ function addToCart(productId) {
 }
 
 // 3. Remove Item Group Entirely From Cart array
+function removeFromCart(productId) {
 
+    const item = cart.find(item => item.id === productId);
+
+    if (!item) {
+        return;
+    }
+
+    // Reduce quantity by 1
+    item.quantity--;
+
+    // If quantity becomes 0, remove product
+    if (item.quantity <= 0) {
+        cart = cart.filter(item => item.id !== productId);
+    }
+
+    updateCartUI();
+}
+///////////////////////////////////////////////
 // 4. Recalculate Subtotals and Regenerate Cart Panel DOM Trees
 function updateCartUI() {
     // Re-render Cart Item Rows
@@ -78,16 +96,21 @@ function updateCartUI() {
     cartTotalPriceDisplay.textContent = totalCartCost.toFixed(2);
 }
 
-// 5. Drawer UI Toggle Interactions
+
 cartIconBtn.addEventListener("click", () => cartSidebar.classList.add("active"));
 closeCartBtn.addEventListener("click", () => cartSidebar.classList.remove("active"));
+
 
 checkoutBtn.addEventListener("click", () => {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
-    innerHTML=`<a href="form.html">`
+    //test
+    checkoutBtn.addEventListener("click", () => formSidebar.classList.add("active"));
+    //
+
+    
     alert("Thank you for your purchase! Checkout completed.");
     cart = [];
     updateCartUI();
@@ -97,4 +120,120 @@ checkoutBtn.addEventListener("click", () => {
 // Initial Run Sequence
 renderProducts();
 //-----------checkout form -------------
+
+// =====================================
+// CHECKOUT FORM ELEMENTS
+// =====================================
+
+const formSidebar =
+    document.getElementById("form-sidebar");
+
+const closeFormBtn =
+    document.getElementById("close-form-btn");
+
+const checkoutForm =
+    document.getElementById("checkout-form");
+
+
+// =====================================
+// CHECKOUT BUTTON
+// =====================================
+
+checkoutBtn.addEventListener("click", function () {
+
+    // Check if cart is empty
+    if (cart.length === 0) {
+
+        alert("Your cart is empty!");
+
+        return;
+    }
+
+
+    // Show checkout form
+    formSidebar.classList.add("active");
+
+
+    // Close cart
+    cartSidebar.classList.remove("active");
+
+});
+
+
+// =====================================
+// CLOSE CHECKOUT FORM
+// =====================================
+
+closeFormBtn.addEventListener("click", function () {
+
+    formSidebar.classList.remove("active");
+
+});
+
+
+// =====================================
+// SUBMIT ORDER
+// =====================================
+
+checkoutForm.addEventListener("submit", function (event) {
+
+    // Prevent page refresh
+    event.preventDefault();
+
+
+    // Get customer name
+    const customerName =
+        document.getElementById("customer-name").value;
+
+
+    // Get other customer details
+    const customerEmail =
+        document.getElementById("customer-email").value;
+
+    const customerPhone =
+        document.getElementById("customer-phone").value;
+
+    const customerAddress =
+        document.getElementById("customer-address").value;
+
+    const customerCity =
+        document.getElementById("customer-city").value;
+
+    const customerMessage =
+        document.getElementById("customer-message").value;
+
+
+    // Test in console
+    console.log("Customer Name:", customerName);
+    console.log("Email:", customerEmail);
+    console.log("Phone:", customerPhone);
+    console.log("Address:", customerAddress);
+    console.log("City:", customerCity);
+    console.log("Message:", customerMessage);
+
+    console.log("Order:", cart);
+
+
+    // Show confirmation
+    alert(
+        "Thank you " +
+        customerName +
+        "! Your order has been received."
+    );
+
+
+    // Clear form
+    checkoutForm.reset();
+
+
+    // Clear cart
+    cart = [];
+
+    updateCartUI();
+
+
+    // Close checkout form
+    formSidebar.classList.remove("active");
+
+});
 
