@@ -71,16 +71,9 @@ const products2 = [
 ];
 
 
-// ======================================================
-// CART
-// ======================================================
 
 let cart = [];
 
-
-// ======================================================
-// HTML ELEMENTS
-// ======================================================
 
 const productList =
     document.getElementById("product-list");
@@ -119,10 +112,6 @@ const orderDetails =
     document.getElementById("order-details");
 
 
-// ======================================================
-// DISPLAY PRODUCTS
-// ======================================================
-
 function renderProducts() {
 
     productList.innerHTML = products2.map(product => `
@@ -158,10 +147,6 @@ function renderProducts() {
     `).join("");
 }
 
-
-// ======================================================
-// ADD TO CART
-// ======================================================
 
 function addToCart(productId) {
 
@@ -205,10 +190,6 @@ function addToCart(productId) {
 }
 
 
-// ======================================================
-// REMOVE ONE ITEM
-// ======================================================
-
 function removeFromCart(productId) {
 
     const item =
@@ -238,10 +219,6 @@ function removeFromCart(productId) {
     updateCartUI();
 }
 
-
-// ======================================================
-// UPDATE CART
-// ======================================================
 
 function updateCartUI() {
 
@@ -295,8 +272,6 @@ function updateCartUI() {
     }
 
 
-    // Total number of items
-
     const totalItemsCount =
         cart.reduce(
             (sum, item) =>
@@ -304,8 +279,6 @@ function updateCartUI() {
             0
         );
 
-
-    // Total price
 
     const totalCartCost =
         cart.reduce(
@@ -324,10 +297,6 @@ function updateCartUI() {
 }
 
 
-// ======================================================
-// OPEN CART
-// ======================================================
-
 cartIconBtn.addEventListener(
     "click",
     function () {
@@ -338,10 +307,6 @@ cartIconBtn.addEventListener(
 );
 
 
-// ======================================================
-// CLOSE CART
-// ======================================================
-
 closeCartBtn.addEventListener(
     "click",
     function () {
@@ -351,10 +316,6 @@ closeCartBtn.addEventListener(
     }
 );
 
-
-// ======================================================
-// CHECKOUT
-// ======================================================
 
 checkoutBtn.addEventListener(
     "click",
@@ -380,10 +341,6 @@ checkoutBtn.addEventListener(
 );
 
 
-// ======================================================
-// CLOSE CHECKOUT FORM
-// ======================================================
-
 closeFormBtn.addEventListener(
     "click",
     function () {
@@ -393,10 +350,6 @@ closeFormBtn.addEventListener(
     }
 );
 
-
-// ======================================================
-// DISPLAY ORDER DETAILS
-// ======================================================
 
 function displayOrderDetails() {
 
@@ -452,8 +405,6 @@ function displayOrderDetails() {
     });
 
 
-    // Display total
-
     const total =
         cart.reduce(
             (sum, item) =>
@@ -474,17 +425,11 @@ function displayOrderDetails() {
 }
 
 
-// ======================================================
-// EMAILJS
-// ======================================================
 
-// Do NOT initialize EmailJS again here.
-// It is already initialized in products.html.
+// emailjs
 
 
-// ======================================================
-// PLACE ORDER + SEND EMAIL
-// ======================================================
+
 
 checkoutForm.addEventListener(
     "submit",
@@ -493,11 +438,6 @@ checkoutForm.addEventListener(
         // Stop page refresh
         event.preventDefault();
 
-
-        // ==================================================
-        // CHECK CART
-        // ==================================================
-
         if (cart.length === 0) {
 
             alert("Your cart is empty!");
@@ -505,10 +445,6 @@ checkoutForm.addEventListener(
             return;
         }
 
-
-        // ==================================================
-        // GET CUSTOMER DETAILS
-        // ==================================================
 
         const customerName =
             document
@@ -552,10 +488,6 @@ checkoutForm.addEventListener(
                 .trim();
 
 
-        // ==================================================
-        // CREATE ORDER TEXT
-        // ==================================================
-
         let orderText = "";
 
 
@@ -594,10 +526,7 @@ checkoutForm.addEventListener(
         });
 
 
-        // ==================================================
-        // CALCULATE TOTAL
-        // ==================================================
-
+  
         const total =
             cart.reduce(
                 function (sum, item) {
@@ -609,11 +538,6 @@ checkoutForm.addEventListener(
                 },
                 0
             );
-
-
-        // ==================================================
-        // EMAILJS PARAMETERS
-        // ==================================================
 
         const templateParams = {
 
@@ -646,9 +570,6 @@ checkoutForm.addEventListener(
         };
 
 
-        // ==================================================
-        // DEBUG
-        // ==================================================
 
         console.log(
             "Customer:",
@@ -691,9 +612,6 @@ checkoutForm.addEventListener(
         );
 
 
-        // ==================================================
-        // SEND EMAIL
-        // ==================================================
 
         emailjs.send(
             "service_7lz49mq",
@@ -716,11 +634,6 @@ checkoutForm.addEventListener(
                 "! Your order has been sent successfully."
             );
 
-
-            // ==================================================
-            // IMPORTANT:
-            // ONLY CLEAR AFTER EMAIL SUCCESS
-            // ==================================================
 
             checkoutForm.reset();
 
