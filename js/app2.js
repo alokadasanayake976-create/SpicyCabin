@@ -319,101 +319,102 @@ function displayOrderDetails() {
 }
 /////////////////////connect with emailjs //////////////////////////////////
 
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("OldQspqGeoUKb5zbH");
 
 checkoutForm.addEventListener("submit", function(event) {
 
-    event.preventDefault();
+// Get customer details
+const customerName = document.getElementById("customer-name").value.trim();
 
-    const customerName =
-        document.getElementById("customer-name").value;
+const customerEmail = document.getElementById("customer-email").value.trim();
 
-    const customerEmail =
-        document.getElementById("customer-email").value;
+const customerPhone = document.getElementById("customer-phone").value.trim();
 
-    const customerPhone =
-        document.getElementById("customer-phone").value;
+const customerAddress = document.getElementById("customer-address").value.trim();
 
-    const customerAddress =
-        document.getElementById("customer-address").value;
+const customerCity = document.getElementById("customer-city").value.trim();
 
-    const customerCity =
-        document.getElementById("customer-city").value;
-
-    const customerMessage =
-        document.getElementById("customer-message").value;
+const customerMessage = document.getElementById("customer-message").value.trim();
 
 
-    // Create order information
-    let orderText = "";
+// Create the order details
+let orderText = "";
 
-    cart.forEach(item => {
+cart.forEach(function(item) {
 
-        orderText +=
-            "Product ID: " + item.id + "\n" +
-            "Product: " + item.name + "\n" +
-            "Package: " + item.qty + "g\n" +
-            "Quantity: " + item.quantity + "\n" +
-            "Price: Rs. " + item.price.toFixed(2) + "\n" +
-            "Subtotal: Rs. " +
-            (item.price * item.quantity).toFixed(2) +
-            "\n\n";
-    });
+    const subtotal = item.price * item.quantity;
 
-
-    // Calculate total
-    const total = cart.reduce(
-        (sum, item) =>
-            sum + (item.price * item.quantity),
-        0
-    );
+    orderText +=
+        "Product ID: " + item.id + "\n" +
+        "Product: " + item.name + "\n" +
+        "Package Size: " + item.qty + "g\n" +
+        "Ordered Quantity: " + item.quantity + "\n" +
+        "Price: Rs. " + item.price.toFixed(2) + "\n" +
+        "Subtotal: Rs. " + subtotal.toFixed(2) +
+        "\n\n";
+});
 
 
-    const templateParams = {
+// Calculate total
+const total = cart.reduce(function(sum, item) {
 
-        customer_name: customerName,
-        customer_email: customerEmail,
-        customer_phone: customerPhone,
-        customer_address: customerAddress,
-        customer_city: customerCity,
-        customer_message: customerMessage,
+    return sum + (item.price * item.quantity);
 
-        order_details: orderText,
-
-        total_price: "Rs. " + total.toFixed(2)
-    };
+}, 0);
 
 
-    emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        templateParams
-    )
-    .then(function(response) {
+// EmailJS variables
+const templateParams = {
 
-        alert(
-            "Thank you " +
-            customerName +
-            "! Your order has been sent successfully."
-        );
+    customer_name: customerName,
 
-        checkoutForm.reset();
+    customer_email: customerEmail,
 
-        cart = [];
+    customer_phone: customerPhone,
 
-        updateCartUI();
+    customer_address: customerAddress,
 
-        formSidebar.classList.remove("active");
+    customer_city: customerCity,
 
-    })
-    .catch(function(error) {
+    customer_message: customerMessage,
 
-        console.error("EmailJS Error:", error);
+    order_details: orderText,
 
-        alert(
-            "Sorry, your order could not be sent. Please try again."
-        );
+    total_price: "Rs. " + total.toFixed(2)
 
-    });
+};
+
+
+// Send email
+emailjs.send(
+    "service_7lz49mq",
+    "template_bqtsfia",
+    templateParams
+)
+.then(function(response) {
+
+    console.log("Email sent successfully!");
+    console.log(response);
+
+    alert("Order sent successfully!");
+
+    checkoutForm.reset();
+
+    cart = [];
+
+    updateCartUI();
+
+    formSidebar.classList.remove("active");
+
+})
+.catch(function(error) {
+
+    console.error("EmailJS Error:", error);
+
+    alert("Failed to send order.");
+
+});
+
+
 
 });
