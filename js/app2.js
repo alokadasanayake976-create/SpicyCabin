@@ -1,20 +1,54 @@
 const products2 = [
 
-    //pepper----
-    { id: 1, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:1000, price: 2000.00 },
-    { id: 2, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:500, price: 1000.00 },
-    { id: 3, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:250, price: 500.00 },
-    { id: 4, image:innerHTML=`<img src="assets/images/photo9.webp" width="250" height="200" alt="" />`,qty:100, price: 200.00 },
-    //ginger----
-    { id: 5, image:innerHTML=`<img src="assets/images/photo14.jpg" width="250" height="200" alt="" />`,qty:1000, price: 1200.00 },
-    //turmeric---
-    { id: 5, image:innerHTML=`<img src="assets/images/photo11.jpg" width="250" height="200" alt="" />`,qty:1000, price: 2000.00 }
+    {
+        id: 1,
+        name: "Black Pepper",
+        image: `<img src="assets/images/photo9.webp" width="250" height="200" alt="Black Pepper">`,
+        qty: 1000,
+        price: 2000.00
+    },
 
+    {
+        id: 2,
+        name: "Black Pepper",
+        image: `<img src="assets/images/photo9.webp" width="250" height="200" alt="Black Pepper">`,
+        qty: 500,
+        price: 1000.00
+    },
+
+    {
+        id: 3,
+        name: "Black Pepper",
+        image: `<img src="assets/images/photo9.webp" width="250" height="200" alt="Black Pepper">`,
+        qty: 250,
+        price: 500.00
+    },
+
+    {
+        id: 4,
+        name: "Black Pepper",
+        image: `<img src="assets/images/photo9.webp" width="250" height="200" alt="Black Pepper">`,
+        qty: 100,
+        price: 200.00
+    },
+
+    {
+        id: 5,
+        name: "Ginger",
+        image: `<img src="assets/images/photo14.jpg" width="250" height="200" alt="Ginger">`,
+        qty: 1000,
+        price: 1200.00
+    },
+
+    {
+        id: 6,
+        name: "Turmeric",
+        image: `<img src="assets/images/photo11.jpg" width="250" height="200" alt="Turmeric">`,
+        qty: 1000,
+        price: 2000.00
+    }
 
 ];
-
-
-
 //  Data Array
 let cart = [];
 
@@ -101,22 +135,23 @@ cartIconBtn.addEventListener("click", () => cartSidebar.classList.add("active"))
 closeCartBtn.addEventListener("click", () => cartSidebar.classList.remove("active"));
 
 
-checkoutBtn.addEventListener("click", () => {
+checkoutBtn.addEventListener("click", function () {
+
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
-    //test
-    checkoutBtn.addEventListener("click", () => formSidebar.classList.add("active"));
-    //
 
-    
-    alert("Thank you for your purchase! Checkout completed.");
-    cart = [];
-    updateCartUI();
+    // Put cart products into the checkout form
+    displayOrderDetails();
+
+    // Open checkout form
+    formSidebar.classList.add("active");
+
+    // Close cart
     cartSidebar.classList.remove("active");
-});
 
+});
 // Initial Run Sequence
 renderProducts();
 //-----------checkout form -------------
@@ -133,6 +168,7 @@ const closeFormBtn =
 
 const checkoutForm =
     document.getElementById("checkout-form");
+    const orderDetails = document.getElementById("order-details");
 
 
 // =====================================
@@ -141,7 +177,6 @@ const checkoutForm =
 
 checkoutBtn.addEventListener("click", function () {
 
-    // Check if cart is empty
     if (cart.length === 0) {
 
         alert("Your cart is empty!");
@@ -149,16 +184,16 @@ checkoutBtn.addEventListener("click", function () {
         return;
     }
 
+    // Show products and quantities
+    displayOrderDetails();
 
-    // Show checkout form
+    // Open checkout form
     formSidebar.classList.add("active");
-
 
     // Close cart
     cartSidebar.classList.remove("active");
 
 });
-
 
 // =====================================
 // CLOSE CHECKOUT FORM
@@ -201,6 +236,7 @@ checkoutForm.addEventListener("submit", function (event) {
 
     const customerMessage =
         document.getElementById("customer-message").value;
+        
 
 
     // Test in console
@@ -236,4 +272,148 @@ checkoutForm.addEventListener("submit", function (event) {
     formSidebar.classList.remove("active");
 
 });
+////////////////////////////////////////////////
+function displayOrderDetails() {
 
+    orderDetails.innerHTML = "";
+
+    cart.forEach(item => {
+
+        orderDetails.innerHTML += `
+            <div class="order-item">
+
+                <p>
+                    <strong>Product ID:</strong>
+                    ${item.id}
+                </p>
+
+                <p>
+                    <strong>Product:</strong>
+                    ${item.name}
+                </p>
+
+                <p>
+                    <strong>Ordered Quantity:</strong>
+                    ${item.quantity}
+                </p>
+
+                <p>
+                    <strong>Package Size:</strong>
+                    ${item.qty}g
+                </p>
+
+                <p>
+                    <strong>Price:</strong>
+                    Rs. ${item.price.toFixed(2)}
+                </p>
+
+                <p>
+                    <strong>Subtotal:</strong>
+                    Rs. ${(item.price * item.quantity).toFixed(2)}
+                </p>
+
+            </div>
+        `;
+
+    });
+}
+/////////////////////connect with emailjs //////////////////////////////////
+
+emailjs.init("YOUR_PUBLIC_KEY");
+
+checkoutForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const customerName =
+        document.getElementById("customer-name").value;
+
+    const customerEmail =
+        document.getElementById("customer-email").value;
+
+    const customerPhone =
+        document.getElementById("customer-phone").value;
+
+    const customerAddress =
+        document.getElementById("customer-address").value;
+
+    const customerCity =
+        document.getElementById("customer-city").value;
+
+    const customerMessage =
+        document.getElementById("customer-message").value;
+
+
+    // Create order information
+    let orderText = "";
+
+    cart.forEach(item => {
+
+        orderText +=
+            "Product ID: " + item.id + "\n" +
+            "Product: " + item.name + "\n" +
+            "Package: " + item.qty + "g\n" +
+            "Quantity: " + item.quantity + "\n" +
+            "Price: Rs. " + item.price.toFixed(2) + "\n" +
+            "Subtotal: Rs. " +
+            (item.price * item.quantity).toFixed(2) +
+            "\n\n";
+    });
+
+
+    // Calculate total
+    const total = cart.reduce(
+        (sum, item) =>
+            sum + (item.price * item.quantity),
+        0
+    );
+
+
+    const templateParams = {
+
+        customer_name: customerName,
+        customer_email: customerEmail,
+        customer_phone: customerPhone,
+        customer_address: customerAddress,
+        customer_city: customerCity,
+        customer_message: customerMessage,
+
+        order_details: orderText,
+
+        total_price: "Rs. " + total.toFixed(2)
+    };
+
+
+    emailjs.send(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        templateParams
+    )
+    .then(function(response) {
+
+        alert(
+            "Thank you " +
+            customerName +
+            "! Your order has been sent successfully."
+        );
+
+        checkoutForm.reset();
+
+        cart = [];
+
+        updateCartUI();
+
+        formSidebar.classList.remove("active");
+
+    })
+    .catch(function(error) {
+
+        console.error("EmailJS Error:", error);
+
+        alert(
+            "Sorry, your order could not be sent. Please try again."
+        );
+
+    });
+
+});
