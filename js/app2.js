@@ -55,10 +55,6 @@ function addToCart(productId) {
 }
 
 // 3. Remove Item Group Entirely From Cart array
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
-    updateCartUI();
-}
 
 // 4. Recalculate Subtotals and Regenerate Cart Panel DOM Trees
 function updateCartUI() {
@@ -91,7 +87,7 @@ checkoutBtn.addEventListener("click", () => {
         alert("Your cart is empty!");
         return;
     }
-    
+    innerHTML=`<a href="form.html">`
     alert("Thank you for your purchase! Checkout completed.");
     cart = [];
     updateCartUI();
@@ -101,5 +97,4 @@ checkoutBtn.addEventListener("click", () => {
 // Initial Run Sequence
 renderProducts();
 //-----------checkout form -------------
-
 
