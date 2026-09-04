@@ -154,11 +154,7 @@ checkoutBtn.addEventListener("click", function () {
 });
 // Initial Run Sequence
 renderProducts();
-//-----------checkout form -------------
 
-// =====================================
-// CHECKOUT FORM ELEMENTS
-// =====================================
 
 const formSidebar =
     document.getElementById("form-sidebar");
@@ -170,10 +166,6 @@ const checkoutForm =
     document.getElementById("checkout-form");
     const orderDetails = document.getElementById("order-details");
 
-
-// =====================================
-// CHECKOUT BUTTON
-// =====================================
 
 checkoutBtn.addEventListener("click", function () {
 
@@ -195,20 +187,12 @@ checkoutBtn.addEventListener("click", function () {
 
 });
 
-// =====================================
-// CLOSE CHECKOUT FORM
-// =====================================
-
 closeFormBtn.addEventListener("click", function () {
 
     formSidebar.classList.remove("active");
 
 });
 
-
-// =====================================
-// SUBMIT ORDER
-// =====================================
 
 checkoutForm.addEventListener("submit", function (event) {
 
@@ -239,7 +223,7 @@ checkoutForm.addEventListener("submit", function (event) {
         
 
 
-    // Test in console
+    
     console.log("Customer Name:", customerName);
     console.log("Email:", customerEmail);
     console.log("Phone:", customerPhone);
