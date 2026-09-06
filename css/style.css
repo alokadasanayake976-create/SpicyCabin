@@ -1,16 +1,17 @@
 body {
-  background-image: url('assets/images/photo19.jpeg');
+  background-image: url('assets/images/photo21.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  min-height: 100vh;
   margin: 0;
-  padding: 60px 50px;
 }
 
+/* Mobile phones */
 @media (max-width: 768px) {
   body {
-    padding: 30px 15px;
+    background-size: cover;
+    background-position: center;
     background-attachment: scroll;
   }
 }
