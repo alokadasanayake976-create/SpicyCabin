@@ -129,7 +129,7 @@ function renderProducts() {
     )
     .join("");
 }
-////////////////////updated/////////////////////////
+////////////////////Add to cart/////////////////////////
 function addToCart(productId) {
 
     const product = products2.find(
@@ -163,7 +163,7 @@ function addToCart(productId) {
 
     updateCartUI();
 }
-//////////////////updated///////////////////////////
+//////////////////remove from the cart///////////////////////////
 function removeFromCart(cartId) {
 
     
@@ -191,7 +191,7 @@ function removeFromCart(cartId) {
     
     updateCartUI();
 }
-/////////////////////////////////////////////////
+///////////////////////Update the cart//////////////////////////
 function updateCartUI() {
   if (cart.length === 0) {
     cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
@@ -237,13 +237,14 @@ function updateCartUI() {
       )
       .join("");
   }
-
+  /////////////////////////////Calculates the total quantity of all products in the cart.
   const totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const totalCartCost = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0,
   );
+  //////////////////////////////////////////////////////////////////////////////////////
 
   cartCountDisplay.textContent = totalItemsCount;
 
@@ -264,7 +265,7 @@ checkoutBtn.addEventListener("click", function () {
 
     return;
   }
-
+  ////////////////Display the form and the cartside bar////////
   displayOrderDetails();
 
   formSidebar.classList.add("active");
