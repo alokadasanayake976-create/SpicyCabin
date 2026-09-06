@@ -1,7 +1,7 @@
 const products2 = [
   {
     id: 1001,
-    name: "Black Pepper",
+    name: "Black Pepper pack1",
     image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
@@ -12,7 +12,7 @@ const products2 = [
 
   {
     id: 1002,
-    name: "Black Pepper",
+    name: "Black Pepper pack2",
     image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
@@ -23,7 +23,7 @@ const products2 = [
 
   {
     id: 1003,
-    name: "Black Pepper",
+    name: "Black Pepper pack3",
     image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
@@ -34,7 +34,7 @@ const products2 = [
 
   {
     id: 1004,
-    name: "Black Pepper",
+    name: "Black Pepper pack4",
     image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
@@ -166,20 +166,20 @@ function addToCart(productId) {
 //////////////////updated///////////////////////////
 function removeFromCart(cartId) {
 
-    // Find the cart item
+    
     const item = cart.find(
         item => item.cartId === cartId
     );
 
-    // If item does not exist
+    
     if (!item) {
         return;
     }
 
-    // Reduce quantity by 1
+    
     item.quantity--;
 
-    // Remove item completely when quantity is 0
+
     if (item.quantity <= 0) {
 
         cart = cart.filter(
@@ -188,7 +188,7 @@ function removeFromCart(cartId) {
 
     }
 
-    // Update cart display
+    
     updateCartUI();
 }
 /////////////////////////////////////////////////
@@ -226,11 +226,11 @@ function updateCartUI() {
                     </div>
 
                     <button
-<button 
-    class="remove-btn"
-    onclick="removeFromCart('${item.cartId}')">
-    Remove
-</button>
+                <button 
+                      class="remove-btn"
+                     onclick="removeFromCart('${item.cartId}')">
+                     Remove
+                </button>
                 </div>
 
             `,
@@ -286,10 +286,6 @@ function displayOrderDetails() {
 
             <div class="order-item">
 
-                <p>
-                    <strong>Product ID:</strong>
-                    ${item.id}
-                </p>
 
                 <p>
                     <strong>Product:</strong>
@@ -322,6 +318,11 @@ function displayOrderDetails() {
 
         `;
   });
+        //insert inside to the orderDetils
+        // <p>
+                //     <strong>Product ID:</strong>
+                //     ${item.id}
+                // </p>
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -335,7 +336,7 @@ function displayOrderDetails() {
     `;
 }
 
-// emailjs
+//------------------ emailjs part --------------------
 
 checkoutForm.addEventListener("submit", function (event) {
   // Stop page refresh
@@ -369,9 +370,9 @@ checkoutForm.addEventListener("submit", function (event) {
     const subtotal = item.price * item.quantity;
 
     orderText +=
-      "Product ID: " +
-      item.id +
-      "\n" +
+    //   "Product ID: " +
+    //   item.id +
+    //   "\n" +
       "Product: " +
       item.name +
       "\n" +
@@ -458,3 +459,8 @@ checkoutForm.addEventListener("submit", function (event) {
 renderProducts();
 
 updateCartUI();
+
+
+
+
+          
