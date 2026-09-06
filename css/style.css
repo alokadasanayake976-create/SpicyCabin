@@ -1,7 +1,18 @@
-body{
-    background-color:whitesmoke;
-      margin: 0;
+body {
+  background-image: url('assets/images/photo19.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
   padding: 60px 50px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 30px 15px;
+    background-attachment: scroll;
+  }
 }
 .container{
     display:flex;
