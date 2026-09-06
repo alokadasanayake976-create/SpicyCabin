@@ -1,120 +1,101 @@
-
-
 const products2 = [
-
-    {
-        id: 1,
-        name: "Black Pepper",
-        image: `<img src="assets/images/photo9.webp"
+  {
+    id: 1001,
+    name: "Black Pepper",
+    image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
                  alt="Black Pepper">`,
-        qty: 1000,
-        price: 2000.00
-    },
+    qty: 1000,
+    price: 2000.0,
+  },
 
-    {
-        id: 2,
-        name: "Black Pepper",
-        image: `<img src="assets/images/photo9.webp"
+  {
+    id: 1002,
+    name: "Black Pepper",
+    image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
                  alt="Black Pepper">`,
-        qty: 500,
-        price: 1000.00
-    },
+    qty: 500,
+    price: 1000.0,
+  },
 
-    {
-        id: 3,
-        name: "Black Pepper",
-        image: `<img src="assets/images/photo9.webp"
+  {
+    id: 1003,
+    name: "Black Pepper",
+    image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
                  alt="Black Pepper">`,
-        qty: 250,
-        price: 500.00
-    },
+    qty: 250,
+    price: 500.0,
+  },
 
-    {
-        id: 4,
-        name: "Black Pepper",
-        image: `<img src="assets/images/photo9.webp"
+  {
+    id: 1004,
+    name: "Black Pepper",
+    image: `<img src="assets/images/photo9.webp"
                  width="250"
                  height="200"
                  alt="Black Pepper">`,
-        qty: 100,
-        price: 200.00
-    },
+    qty: 100,
+    price: 200.0,
+  },
 
-    {
-        id: 5,
-        name: "Ginger",
-        image: `<img src="assets/images/photo14.jpg"
+  {
+    id: 1005,
+    name: "Ginger",
+    image: `<img src="assets/images/photo14.jpg"
                  width="250"
                  height="200"
                  alt="Ginger">`,
-        qty: 1000,
-        price: 1200.00
-    },
+    qty: 1000,
+    price: 1200.0,
+  },
 
-    {
-        id: 6,
-        name: "Turmeric",
-        image: `<img src="assets/images/photo11.jpg"
+  {
+    id: 1006,
+    name: "Turmeric",
+    image: `<img src="assets/images/photo11.jpg"
                  width="250"
                  height="200"
                  alt="Turmeric">`,
-        qty: 1000,
-        price: 2000.00
-    }
-
+    qty: 1000,
+    price: 2000.0,
+  },
 ];
-
-
 
 let cart = [];
 
+const productList = document.getElementById("product-list");
 
-const productList =
-    document.getElementById("product-list");
+const cartSidebar = document.getElementById("cart-sidebar");
 
-const cartSidebar =
-    document.getElementById("cart-sidebar");
+const cartIconBtn = document.getElementById("cart-icon-btn");
 
-const cartIconBtn =
-    document.getElementById("cart-icon-btn");
+const closeCartBtn = document.getElementById("close-cart-btn");
 
-const closeCartBtn =
-    document.getElementById("close-cart-btn");
+const cartItemsContainer = document.getElementById("cart-items-container");
 
-const cartItemsContainer =
-    document.getElementById("cart-items-container");
+const cartCountDisplay = document.getElementById("cart-count");
 
-const cartCountDisplay =
-    document.getElementById("cart-count");
+const cartTotalPriceDisplay = document.getElementById("cart-total-price");
 
-const cartTotalPriceDisplay =
-    document.getElementById("cart-total-price");
+const checkoutBtn = document.getElementById("checkout-btn");
 
-const checkoutBtn =
-    document.getElementById("checkout-btn");
+const formSidebar = document.getElementById("form-sidebar");
 
-const formSidebar =
-    document.getElementById("form-sidebar");
+const closeFormBtn = document.getElementById("close-form-btn");
 
-const closeFormBtn =
-    document.getElementById("close-form-btn");
+const checkoutForm = document.getElementById("checkout-form");
 
-const checkoutForm =
-    document.getElementById("checkout-form");
-
-const orderDetails =
-    document.getElementById("order-details");
-
+const orderDetails = document.getElementById("order-details");
 
 function renderProducts() {
-
-    productList.innerHTML = products2.map(product => `
+  productList.innerHTML = products2
+    .map(
+      (product) => `
 
         <div class="product-card">
 
@@ -144,93 +125,80 @@ function renderProducts() {
 
         </div>
 
-    `).join("");
+    `,
+    )
+    .join("");
 }
-
-
+////////////////////updated/////////////////////////
 function addToCart(productId) {
 
-    const product =
-        products2.find(
-            product => product.id === productId
-        );
+    const product = products2.find(
+        product => product.id === productId
+    );
 
     if (!product) {
-
-        console.error(
-            "Product not found:",
-            productId
-        );
-
         return;
     }
 
-
-    const existingItem =
-        cart.find(
-            item => item.id === productId
-        );
-
+    const existingItem = cart.find(
+        item => item.productId === productId
+    );
 
     if (existingItem) {
 
-        existingItem.quantity += 1;
+        existingItem.quantity++;
 
     } else {
 
         cart.push({
-            ...product,
+            cartId: crypto.randomUUID(),
+            productId: product.id,
+            name: product.name,
+            qty: product.qty,
+            price: product.price,
             quantity: 1
         });
 
     }
 
-
     updateCartUI();
 }
+//////////////////updated///////////////////////////
+function removeFromCart(cartId) {
 
+    // Find the cart item
+    const item = cart.find(
+        item => item.cartId === cartId
+    );
 
-function removeFromCart(productId) {
-
-    const item =
-        cart.find(
-            item => item.id === productId
-        );
-
-
+    // If item does not exist
     if (!item) {
         return;
     }
 
-
+    // Reduce quantity by 1
     item.quantity--;
 
-
+    // Remove item completely when quantity is 0
     if (item.quantity <= 0) {
 
-        cart =
-            cart.filter(
-                item => item.id !== productId
-            );
+        cart = cart.filter(
+            item => item.cartId !== cartId
+        );
 
     }
 
-
+    // Update cart display
     updateCartUI();
 }
-
-
+/////////////////////////////////////////////////
 function updateCartUI() {
-
-    if (cart.length === 0) {
-
-        cartItemsContainer.innerHTML =
-            "<p>Your cart is empty.</p>";
-
-    } else {
-
-        cartItemsContainer.innerHTML =
-            cart.map(item => `
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+  } else {
+    cartItemsContainer.innerHTML = cart
+      .map(
+        (item) => `
 
                 <div class="cart-item">
 
@@ -258,111 +226,63 @@ function updateCartUI() {
                     </div>
 
                     <button
-                        class="remove-btn"
-                        onclick="removeFromCart(${item.id})">
-
-                        Remove
-
-                    </button>
-
+<button 
+    class="remove-btn"
+    onclick="removeFromCart('${item.cartId}')">
+    Remove
+</button>
                 </div>
 
-            `).join("");
+            `,
+      )
+      .join("");
+  }
 
-    }
+  const totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const totalCartCost = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
 
-    const totalItemsCount =
-        cart.reduce(
-            (sum, item) =>
-                sum + item.quantity,
-            0
-        );
+  cartCountDisplay.textContent = totalItemsCount;
 
-
-    const totalCartCost =
-        cart.reduce(
-            (sum, item) =>
-                sum +
-                (item.price * item.quantity),
-            0
-        );
-
-
-    cartCountDisplay.textContent =
-        totalItemsCount;
-
-    cartTotalPriceDisplay.textContent =
-        totalCartCost.toFixed(2);
+  cartTotalPriceDisplay.textContent = totalCartCost.toFixed(2);
 }
 
+cartIconBtn.addEventListener("click", function () {
+  cartSidebar.classList.add("active");
+});
 
-cartIconBtn.addEventListener(
-    "click",
-    function () {
+closeCartBtn.addEventListener("click", function () {
+  cartSidebar.classList.remove("active");
+});
 
-        cartSidebar.classList.add("active");
+checkoutBtn.addEventListener("click", function () {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
 
-    }
-);
+    return;
+  }
 
+  displayOrderDetails();
 
-closeCartBtn.addEventListener(
-    "click",
-    function () {
+  formSidebar.classList.add("active");
 
-        cartSidebar.classList.remove("active");
+  cartSidebar.classList.remove("active");
+});
 
-    }
-);
-
-
-checkoutBtn.addEventListener(
-    "click",
-    function () {
-
-        if (cart.length === 0) {
-
-            alert("Your cart is empty!");
-
-            return;
-        }
-
-
-        displayOrderDetails();
-
-
-        formSidebar.classList.add("active");
-
-
-        cartSidebar.classList.remove("active");
-
-    }
-);
-
-
-closeFormBtn.addEventListener(
-    "click",
-    function () {
-
-        formSidebar.classList.remove("active");
-
-    }
-);
-
+closeFormBtn.addEventListener("click", function () {
+  formSidebar.classList.remove("active");
+});
 
 function displayOrderDetails() {
+  orderDetails.innerHTML = "";
 
-    orderDetails.innerHTML = "";
+  cart.forEach(function (item) {
+    const subtotal = item.price * item.quantity;
 
-
-    cart.forEach(function (item) {
-
-        const subtotal =
-            item.price * item.quantity;
-
-
-        orderDetails.innerHTML += `
+    orderDetails.innerHTML += `
 
             <div class="order-item">
 
@@ -401,20 +321,11 @@ function displayOrderDetails() {
             </div>
 
         `;
+  });
 
-    });
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-
-    const total =
-        cart.reduce(
-            (sum, item) =>
-                sum +
-                (item.price * item.quantity),
-            0
-        );
-
-
-    orderDetails.innerHTML += `
+  orderDetails.innerHTML += `
 
         <h3>
             Total:
@@ -424,247 +335,126 @@ function displayOrderDetails() {
     `;
 }
 
-
-
 // emailjs
 
+checkoutForm.addEventListener("submit", function (event) {
+  // Stop page refresh
+  event.preventDefault();
 
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
 
+    return;
+  }
 
-checkoutForm.addEventListener(
-    "submit",
-    function (event) {
+  const customerName = document.getElementById("customer-name").value.trim();
 
-        // Stop page refresh
-        event.preventDefault();
+  const customerEmail = document.getElementById("customer-email").value.trim();
 
-        if (cart.length === 0) {
+  const customerPhone = document.getElementById("customer-phone").value.trim();
 
-            alert("Your cart is empty!");
+  const customerAddress = document
+    .getElementById("customer-address")
+    .value.trim();
 
-            return;
-        }
+  const customerCity = document.getElementById("customer-city").value.trim();
 
+  const customerMessage = document
+    .getElementById("customer-message")
+    .value.trim();
 
-        const customerName =
-            document
-                .getElementById("customer-name")
-                .value
-                .trim();
+  let orderText = "";
 
+  cart.forEach(function (item) {
+    const subtotal = item.price * item.quantity;
 
-        const customerEmail =
-            document
-                .getElementById("customer-email")
-                .value
-                .trim();
+    orderText +=
+      "Product ID: " +
+      item.id +
+      "\n" +
+      "Product: " +
+      item.name +
+      "\n" +
+      "Package Size: " +
+      item.qty +
+      "g\n" +
+      "Ordered Quantity: " +
+      item.quantity +
+      "\n" +
+      "Price: Rs. " +
+      item.price.toFixed(2) +
+      "\n" +
+      "Subtotal: Rs. " +
+      subtotal.toFixed(2) +
+      "\n\n";
+  });
 
+  const total = cart.reduce(function (sum, item) {
+    return sum + item.price * item.quantity;
+  }, 0);
 
-        const customerPhone =
-            document
-                .getElementById("customer-phone")
-                .value
-                .trim();
+  const templateParams = {
+    customer_name: customerName,
 
+    customer_email: customerEmail,
 
-        const customerAddress =
-            document
-                .getElementById("customer-address")
-                .value
-                .trim();
+    customer_phone: customerPhone,
 
+    customer_address: customerAddress,
 
-        const customerCity =
-            document
-                .getElementById("customer-city")
-                .value
-                .trim();
+    customer_city: customerCity,
 
+    customer_message: customerMessage || "No additional message",
 
-        const customerMessage =
-            document
-                .getElementById("customer-message")
-                .value
-                .trim();
+    order_details: orderText,
 
+    total_price: "Rs. " + total.toFixed(2),
+  };
 
-        let orderText = "";
+  console.log("Customer:", customerName);
 
+  console.log("Email:", customerEmail);
 
-        cart.forEach(function (item) {
+  console.log("Phone:", customerPhone);
 
-            const subtotal =
-                item.price * item.quantity;
+  console.log("Address:", customerAddress);
 
+  console.log("City:", customerCity);
 
-            orderText +=
-                "Product ID: " +
-                item.id +
-                "\n" +
+  console.log("Order:", orderText);
 
-                "Product: " +
-                item.name +
-                "\n" +
+  console.log("Total:", total);
 
-                "Package Size: " +
-                item.qty +
-                "g\n" +
+  console.log("EmailJS Parameters:", templateParams);
 
-                "Ordered Quantity: " +
-                item.quantity +
-                "\n" +
+  emailjs
+    .send("service_7lz49mq", "template_bqtsfia", templateParams)
 
-                "Price: Rs. " +
-                item.price.toFixed(2) +
-                "\n" +
+    .then(function (response) {
+      console.log("EMAIL SENT SUCCESSFULLY", response.status, response.text);
 
-                "Subtotal: Rs. " +
-                subtotal.toFixed(2) +
+      alert(
+        "Thank you " +
+          customerName +
+          "! Your order has been sent successfully.",
+      );
 
-                "\n\n";
+      checkoutForm.reset();
 
-        });
+      cart = [];
 
+      updateCartUI();
 
-  
-        const total =
-            cart.reduce(
-                function (sum, item) {
+      formSidebar.classList.remove("active");
+    })
 
-                    return sum +
-                        (item.price *
-                         item.quantity);
+    .catch(function (error) {
+      console.error("EMAILJS ERROR:", error);
 
-                },
-                0
-            );
-
-        const templateParams = {
-
-            customer_name:
-                customerName,
-
-            customer_email:
-                customerEmail,
-
-            customer_phone:
-                customerPhone,
-
-            customer_address:
-                customerAddress,
-
-            customer_city:
-                customerCity,
-
-            customer_message:
-                customerMessage ||
-                "No additional message",
-
-            order_details:
-                orderText,
-
-            total_price:
-                "Rs. " +
-                total.toFixed(2)
-
-        };
-
-
-
-        console.log(
-            "Customer:",
-            customerName
-        );
-
-        console.log(
-            "Email:",
-            customerEmail
-        );
-
-        console.log(
-            "Phone:",
-            customerPhone
-        );
-
-        console.log(
-            "Address:",
-            customerAddress
-        );
-
-        console.log(
-            "City:",
-            customerCity
-        );
-
-        console.log(
-            "Order:",
-            orderText
-        );
-
-        console.log(
-            "Total:",
-            total
-        );
-
-        console.log(
-            "EmailJS Parameters:",
-            templateParams
-        );
-
-
-
-        emailjs.send(
-            "service_7lz49mq",
-            "template_bqtsfia",
-            templateParams
-        )
-
-        .then(function (response) {
-
-            console.log(
-                "EMAIL SENT SUCCESSFULLY",
-                response.status,
-                response.text
-            );
-
-
-            alert(
-                "Thank you " +
-                customerName +
-                "! Your order has been sent successfully."
-            );
-
-
-            checkoutForm.reset();
-
-            cart = [];
-
-            updateCartUI();
-
-            formSidebar.classList.remove("active");
-
-        })
-
-        .catch(function (error) {
-
-            console.error(
-                "EMAILJS ERROR:",
-                error
-            );
-
-
-            alert(
-                "Sorry! Your order could not be sent."
-            );
-
-        });
-
-    }
-);
-
-
+      alert("Sorry! Your order could not be sent.");
+    });
+});
 
 renderProducts();
 
 updateCartUI();
-
