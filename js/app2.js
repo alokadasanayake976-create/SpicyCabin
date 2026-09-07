@@ -329,10 +329,10 @@ function displayOrderDetails() {
 
   orderDetails.innerHTML += `
 
-        <h3>
-            Total:
-            Rs. ${total.toFixed(2)}
-        </h3>
+        <h5>
+            Total with delivery charge:
+            Rs. ${(total+450).toFixed(2)}
+        </h5>
 
     `;
 }
