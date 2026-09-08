@@ -746,23 +746,61 @@ header {
   justify-content: center;
   align-items: center;
 }
+/* //////////////////////////////////////////// */
+/* Popup background */
+.popup {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  z-index: 9999;
+}
 
 /* Popup box */
 .popup-content {
   position: relative;
-
   background-color: white;
 
   width: 90%;
   max-width: 500px;
 
   padding: 30px;
-
   border-radius: 15px;
 
   text-align: center;
 
-  animation: popupAnimation 0.5s ease;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.popup-content h2 {
+  font-size: clamp(22px, 4vw, 32px);
+}
+
+/* Paragraph */
+.popup-content p {
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.6;
+}
+
+/* Button */
+.popup-content button {
+  width: 100%;
+  max-width: 250px;
+
+  padding: 12px 20px;
+
+  font-size: clamp(14px, 2.5vw, 17px);
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
 }
 
 /* Close button */
@@ -770,45 +808,9 @@ header {
   position: absolute;
 
   top: 10px;
-  right: 20px;
+  right: 15px;
 
   font-size: 30px;
 
   cursor: pointer;
-}
-
-/* Button */
-.popup-content button {
-  background-color: #198754;
-
-  color: white;
-
-  border: none;
-
-  padding: 10px 25px;
-
-  border-radius: 5px;
-
-  cursor: pointer;
-
-  font-size: 16px;
-}
-
-.popup-content button:hover {
-  opacity: 0.8;
-}
-
-/* Animation */
-@keyframes popupAnimation {
-
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-
 }
