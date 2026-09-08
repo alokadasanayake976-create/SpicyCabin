@@ -86,7 +86,7 @@ searchInput.addEventListener("input", function() {
     });
 
 
-    // Display filtered products
+    
     displayResults(filteredProducts);
 
 });

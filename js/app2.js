@@ -319,11 +319,6 @@ function displayOrderDetails() {
 
         `;
   });
-        //insert inside to the orderDetils
-        // <p>
-                //     <strong>Product ID:</strong>
-                //     ${item.id}
-                // </p>
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
