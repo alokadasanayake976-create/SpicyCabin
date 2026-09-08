@@ -753,3 +753,87 @@ header {
 .order-item p {
     margin: 5px 0;
 }
+/* ///////////////////////////////////////////// */
+/* Popup background */
+.popup {
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.6);
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup box */
+.popup-content {
+  position: relative;
+
+  background-color: white;
+
+  width: 90%;
+  max-width: 500px;
+
+  padding: 30px;
+
+  border-radius: 15px;
+
+  text-align: center;
+
+  animation: popupAnimation 0.5s ease;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+
+  top: 10px;
+  right: 20px;
+
+  font-size: 30px;
+
+  cursor: pointer;
+}
+
+/* Button */
+.popup-content button {
+  background-color: #198754;
+
+  color: white;
+
+  border: none;
+
+  padding: 10px 25px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+}
+
+.popup-content button:hover {
+  opacity: 0.8;
+}
+
+/* Animation */
+@keyframes popupAnimation {
+
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
