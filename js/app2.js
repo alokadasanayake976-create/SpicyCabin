@@ -282,6 +282,7 @@ function displayOrderDetails() {
 
   cart.forEach(function (item) {
     const subtotal = item.price * item.quantity;
+    const delivery = 450;
 
     orderDetails.innerHTML += `
 
@@ -311,6 +312,11 @@ function displayOrderDetails() {
                 <p>
                     <strong>Subtotal:</strong>
                     Rs. ${subtotal.toFixed(2)}
+                </p>
+                
+                 <p>
+                    <strong>Delivery charge:</strong>
+                    Rs. ${delivery.toFixed(2)}
                 </p>
 
                 <hr>
@@ -384,6 +390,7 @@ checkoutForm.addEventListener("submit", function (event) {
       "Subtotal: Rs. " +
       subtotal.toFixed(2) +
       "\n\n";
+      
   });
 
   const total = cart.reduce(function (sum, item) {
